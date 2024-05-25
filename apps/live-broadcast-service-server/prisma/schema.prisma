@@ -1,0 +1,36 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Settings {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Camera {
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  isActive    Boolean?
+  name        String?
+  updatedAt   DateTime @updatedAt
+  url         String?
+}
+
+model User {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Stream {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
